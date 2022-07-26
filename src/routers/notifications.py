@@ -6,6 +6,7 @@ from dependencies import auth
 
 router = APIRouter(prefix="/notifications", tags=["Notifications"])
 
+
 @router.post("/", status_code=200, summary="Update notification preferences")
 async def update_notification_preferences(
     notifications: list[str],
@@ -25,5 +26,3 @@ async def update_notification_preferences(
         {"$set": {f"active_notifications": notifications}},
     )
     return {"status": "ok"}
-
-
